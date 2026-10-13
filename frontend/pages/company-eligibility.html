@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View eligible placement companies based on student profile and preparation progress.">
+  <title>Company Eligibility | Placement Preparation & Tracking Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-student-layout="true">
+  <div class="page-shell">
+    <aside class="app-sidebar" id="studentSidebar" aria-label="Student navigation">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-text">
+          <strong>Placement Portal</strong>
+          <span>Student Workspace</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <p class="nav-label">Overview</p>
+        <a class="nav-link" href="student-dashboard.html">
+          <span aria-hidden="true">▦</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link active" href="company-eligibility.html">
+          <span aria-hidden="true">◇</span>
+          <span>Companies</span>
+        </a>
+        <a class="nav-link" href="feedback.html">
+          <span aria-hidden="true">✦</span>
+          <span>Feedback</span>
+        </a>
+
+        <p class="nav-label">Preparation</p>
+        <a class="nav-link" href="student-dashboard.html#coding-progress">
+          <span aria-hidden="true">⌘</span>
+          <span>Coding</span>
+        </a>
+        <a class="nav-link" href="student-dashboard.html#aptitude-progress">
+          <span aria-hidden="true">∑</span>
+          <span>Aptitude</span>
+        </a>
+        <a class="nav-link" href="student-dashboard.html#interview-progress">
+          <span aria-hidden="true">☷</span>
+          <span>Interview</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="profile-mini">
+          <div class="avatar" data-user-initials aria-hidden="true">--</div>
+          <div class="brand-text">
+            <strong data-user-name>Student</strong>
+            <span data-user-subtitle>—</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="app-navbar">
+        <div class="navbar-left">
+          <button class="icon-btn" type="button" id="sidebarToggle" aria-label="Toggle sidebar" aria-controls="studentSidebar" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+          <div>
+            <h1 class="navbar-title">Company Eligibility</h1>
+            <p class="section-subtitle">Find opportunities that match your profile.</p>
+          </div>
+        </div>
+
+        <div class="navbar-right">
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input
+              type="search"
+              id="navbarCompanySearch"
+              data-search-companies
+              placeholder="Search companies"
+              aria-label="Search companies"
+            >
+          </div>
+          <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle dark or light mode" title="Toggle theme">
+            <span aria-hidden="true">◐</span>
+          </button>
+          <div class="dropdown" id="profileDropdown">
+            <button class="profile-mini" type="button" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar" data-user-initials aria-hidden="true">--</div>
+              <div class="brand-text">
+                <strong data-user-first-name>Student</strong>
+                <span data-user-role>Student</span>
+              </div>
+            </button>
+            <div class="dropdown-menu" role="menu" aria-label="Profile menu">
+              <a class="dropdown-item" href="student-dashboard.html" role="menuitem">Dashboard</a>
+              <a class="dropdown-item" href="feedback.html" role="menuitem">Submit Feedback</a>
+              <a class="dropdown-item" href="../index.html" role="menuitem" data-logout>Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-inner">
+        <section class="page-grid" aria-label="Company eligibility">
+          <div class="welcome-banner span-12">
+            <p class="eyebrow">Eligibility marketplace</p>
+            <h1>Explore placement opportunities matched to your readiness profile.</h1>
+            <p data-user-eligibility-summary>
+              Search companies, compare packages, and filter roles using CGPA and job preferences.
+            </p>
+          </div>
+
+          <section class="filter-bar span-12" aria-label="Company filters">
+            <div class="filter-group">
+              <div class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <input
+                  type="search"
+                  id="companySearch"
+                  data-search-companies
+                  placeholder="Search by company or role"
+                  aria-label="Search by company or job role"
+                >
+              </div>
+
+              <select class="form-select" id="cgpaFilter" data-filter-cgpa aria-label="Filter by required CGPA">
+                <option value="">Any CGPA</option>
+                <option value="6">CGPA up to 6.0</option>
+                <option value="7">CGPA up to 7.0</option>
+                <option value="8">CGPA up to 8.0</option>
+                <option value="9">CGPA up to 9.0</option>
+              </select>
+
+              <select class="form-select" id="packageFilter" data-filter-package aria-label="Filter by package">
+                <option value="">Any Package</option>
+                <option value="4">4 LPA and above</option>
+                <option value="6">6 LPA and above</option>
+                <option value="8">8 LPA and above</option>
+                <option value="10">10 LPA and above</option>
+              </select>
+
+              <select class="form-select" id="roleFilter" data-filter-role aria-label="Filter by job role">
+                <option value="">All Job Roles</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Systems Engineer">Systems Engineer</option>
+                <option value="Associate Developer">Associate Developer</option>
+                <option value="Programmer Analyst">Programmer Analyst</option>
+                <option value="Project Engineer">Project Engineer</option>
+              </select>
+            </div>
+
+            <button class="btn btn-outline" type="button" id="resetCompanyFilters" data-reset-filters>
+              Reset Filters
+            </button>
+          </section>
+
+          <article class="company-card glass-card span-4" data-company-card data-company="TCS" data-role="Software Engineer" data-cgpa="7.0" data-package="7">
+            <div class="company-card-header">
+              <div class="company-logo" aria-hidden="true">TC</div>
+              <span class="badge badge-warning">Improve aptitude</span>
+            </div>
+            <div>
+              <h2 class="company-name">TCS Digital</h2>
+              <p class="card-caption">Software Engineer</p>
+            </div>
+            <div class="company-meta">
+              <span class="badge">7.0 LPA</span>
+              <span class="badge badge-muted">CGPA 7.0+</span>
+              <span class="badge">CSE · IT · ECE</span>
+            </div>
+            <p class="section-subtitle">Requires stronger aptitude score for final eligibility.</p>
+            <button class="btn btn-outline btn-block" type="button" disabled>Almost Eligible</button>
+          </article>
+
+          <article class="company-card glass-card span-4" data-company-card data-company="Infosys" data-role="Systems Engineer" data-cgpa="6.5" data-package="4.5">
+            <div class="company-card-header">
+              <div class="company-logo" aria-hidden="true">IN</div>
+              <span class="badge badge-success">Eligible</span>
+            </div>
+            <div>
+              <h2 class="company-name">Infosys</h2>
+              <p class="card-caption">Systems Engineer</p>
+            </div>
+            <div class="company-meta">
+              <span class="badge">4.5 LPA</span>
+              <span class="badge badge-muted">CGPA 6.5+</span>
+              <span class="badge">All circuit branches</span>
+            </div>
+            <p class="section-subtitle">Your coding and interview readiness meet the requirement.</p>
+            <button class="btn btn-primary btn-block" type="button">Apply Now</button>
+          </article>
+
+          <article class="company-card glass-card span-4" data-company-card data-company="Wipro" data-role="Project Engineer" data-cgpa="6.0" data-package="4">
+            <div class="company-card-header">
+              <div class="company-logo" aria-hidden="true">WI</div>
+              <span class="badge badge-success">Eligible</span>
+            </div>
+            <div>
+              <h2 class="company-name">Wipro</h2>
+              <p class="card-caption">Project Engineer</p>
+            </div>
+            <div class="company-meta">
+              <span class="badge">4.0 LPA</span>
+              <span class="badge badge-muted">CGPA 6.0+</span>
+              <span class="badge">CSE · IT · ECE · EE</span>
+            </div>
+            <p class="section-subtitle">Good fit for your branch and current preparation level.</p>
+            <button class="btn btn-primary btn-block" type="button">Apply Now</button>
+          </article>
+
+          <article class="company-card glass-card span-4" data-company-card data-company="Accenture" data-role="Associate Developer" data-cgpa="6.5" data-package="6">
+            <div class="company-card-header">
+              <div class="company-logo" aria-hidden="true">AC</div>
+              <span class="badge badge-success">Eligible</span>
+            </div>
+            <div>
+              <h2 class="company-name">Accenture</h2>
+              <p class="card-caption">Associate Developer</p>
+            </div>
+            <div class="company-meta">
+              <span class="badge">6.0 LPA</span>
+              <span class="badge badge-muted">CGPA 6.5+</span>
+              <span class="badge">CSE · IT · AI · DS</span>
+            </div>
+            <p class="section-subtitle">Recommended opportunity based on coding consistency.</p>
+            <button class="btn btn-primary btn-block" type="button">Apply Now</button>
+          </article>
+
+          <article class="company-card glass-card span-4" data-company-card data-company="Cognizant" data-role="Programmer Analyst" data-cgpa="6.0" data-package="5.2">
+            <div class="company-card-header">
+              <div class="company-logo" aria-hidden="true">CG</div>
+              <span class="badge badge-success">Eligible</span>
+            </div>
+            <div>
+              <h2 class="company-name">Cognizant</h2>
+              <p class="card-caption">Programmer Analyst</p>
+            </div>
+            <div class="company-meta">
+              <span class="badge">5.2 LPA</span>
+              <span class="badge badge-muted">CGPA 6.0+</span>
+              <span class="badge">CSE · IT · ECE</span>
+            </div>
+            <p class="section-subtitle">Your profile meets the CGPA and branch criteria.</p>
+            <button class="btn btn-primary btn-block" type="button">Apply Now</button>
+          </article>
+
+          <nav class="card span-12" aria-label="Company pagination">
+            <div class="filter-bar">
+              <p class="section-subtitle">Showing 1-5 of 5 companies</p>
+              <div class="filter-group">
+                <button class="btn btn-outline" type="button" disabled>Previous</button>
+                <button class="btn btn-primary" type="button" aria-current="page">1</button>
+                <button class="btn btn-outline" type="button" disabled>Next</button>
+              </div>
+            </div>
+          </nav>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/companies.js"></script>
+</body>
+</html>

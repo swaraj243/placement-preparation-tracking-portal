@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Admin dashboard for managing placement preparation, companies, student progress, and feedback.">
+  <title>Admin Dashboard | Placement Preparation & Tracking Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="app-sidebar" id="adminSidebar" aria-label="Admin navigation">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-text">
+          <strong>Placement Portal</strong>
+          <span>Admin Console</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <p class="nav-label">Manage</p>
+        <a class="nav-link active" href="admin-dashboard.html">
+          <span aria-hidden="true">▦</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="#student-progress">
+          <span aria-hidden="true">◫</span>
+          <span>Students</span>
+        </a>
+        <a class="nav-link" href="#company-management">
+          <span aria-hidden="true">◇</span>
+          <span>Companies</span>
+        </a>
+        <a class="nav-link" href="#feedback-management">
+          <span aria-hidden="true">✦</span>
+          <span>Feedback</span>
+        </a>
+
+        <p class="nav-label">Operations</p>
+        <a class="nav-link" href="#add-company">
+          <span aria-hidden="true">＋</span>
+          <span>Add Company</span>
+        </a>
+        <a class="nav-link" href="#recent-activities">
+          <span aria-hidden="true">☷</span>
+          <span>Activities</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="profile-mini">
+          <div class="avatar" aria-hidden="true">AD</div>
+          <div class="brand-text">
+            <strong>Admin Team</strong>
+            <span>Placement Cell</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="app-navbar">
+        <div class="navbar-left">
+          <button class="icon-btn" type="button" id="sidebarToggle" aria-label="Toggle sidebar" aria-controls="adminSidebar" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+          <div>
+            <h1 class="navbar-title">Admin Dashboard</h1>
+            <p class="section-subtitle">Placement operations and preparation analytics.</p>
+          </div>
+        </div>
+
+        <div class="navbar-right">
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" placeholder="Search students, companies, feedback" aria-label="Search admin dashboard">
+          </div>
+          <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle dark or light mode" title="Toggle theme">
+            <span aria-hidden="true">◐</span>
+          </button>
+          <div class="dropdown" id="profileDropdown">
+            <button class="profile-mini" type="button" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar" aria-hidden="true">AD</div>
+              <div class="brand-text">
+                <strong>Admin</strong>
+                <span>Placement Cell</span>
+              </div>
+            </button>
+            <div class="dropdown-menu" role="menu" aria-label="Profile menu">
+              <a class="dropdown-item" href="#company-management" role="menuitem">Company Management</a>
+              <a class="dropdown-item" href="#feedback-management" role="menuitem">Feedback Queue</a>
+              <a class="dropdown-item" href="../index.html" role="menuitem" data-logout>Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-inner">
+        <section class="page-grid" aria-label="Admin overview">
+          <div class="welcome-banner span-12">
+            <p class="eyebrow">Placement control center</p>
+            <h1>Monitor readiness, manage companies, and act on student feedback from one console.</h1>
+            <p>
+              Track preparation performance across departments, keep company drives updated,
+              and resolve student feedback before placement deadlines.
+            </p>
+          </div>
+
+          <article class="analytics-card span-3">
+            <div class="analytics-top">
+              <div>
+                <p class="analytics-label">Total Students</p>
+                <h2 class="analytics-value">1,248</h2>
+              </div>
+              <div class="analytics-icon" aria-hidden="true">◫</div>
+            </div>
+            <span class="stat-trend">+84 this month</span>
+          </article>
+
+          <article class="analytics-card span-3">
+            <div class="analytics-top">
+              <div>
+                <p class="analytics-label">Total Companies</p>
+                <h2 class="analytics-value">36</h2>
+              </div>
+              <div class="analytics-icon" aria-hidden="true">◇</div>
+            </div>
+            <span class="stat-trend">12 active drives</span>
+          </article>
+
+          <article class="analytics-card span-3">
+            <div class="analytics-top">
+              <div>
+                <p class="analytics-label">Total Feedback</p>
+                <h2 class="analytics-value">428</h2>
+              </div>
+              <div class="analytics-icon" aria-hidden="true">✦</div>
+            </div>
+            <span class="stat-trend">91% resolved</span>
+          </article>
+
+          <article class="analytics-card span-3">
+            <div class="analytics-top">
+              <div>
+                <p class="analytics-label">Average Readiness</p>
+                <h2 class="analytics-value">78%</h2>
+              </div>
+              <div class="analytics-icon" aria-hidden="true">✓</div>
+            </div>
+            <span class="stat-trend">+6% since May</span>
+          </article>
+
+          <section class="card span-8" id="student-progress" aria-labelledby="student-progress-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="student-progress-title">Student Progress Table</h2>
+                <p class="card-caption">Readiness breakdown for high-priority placement candidates.</p>
+              </div>
+              <button class="btn btn-outline" type="button">Export CSV</button>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Branch</th>
+                    <th>CGPA</th>
+                    <th>Coding</th>
+                    <th>Aptitude</th>
+                    <th>Interview</th>
+                    <th>Readiness</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Ananya Sharma</td>
+                    <td>CSE</td>
+                    <td>8.7</td>
+                    <td>88%</td>
+                    <td>74%</td>
+                    <td>76%</td>
+                    <td><span class="badge badge-success">82%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Rahul Kumar</td>
+                    <td>IT</td>
+                    <td>8.1</td>
+                    <td>79%</td>
+                    <td>81%</td>
+                    <td>68%</td>
+                    <td><span class="badge">76%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Neha Patel</td>
+                    <td>ECE</td>
+                    <td>7.9</td>
+                    <td>71%</td>
+                    <td>69%</td>
+                    <td>84%</td>
+                    <td><span class="badge">75%</span></td>
+                  </tr>
+                  <tr>
+                    <td>Arjun Mehta</td>
+                    <td>AI</td>
+                    <td>9.0</td>
+                    <td>92%</td>
+                    <td>86%</td>
+                    <td>88%</td>
+                    <td><span class="badge badge-success">89%</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card span-4" id="recent-activities" aria-labelledby="recent-activities-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="recent-activities-title">Recent Activities</h2>
+                <p class="card-caption">Latest admin and student events.</p>
+              </div>
+            </div>
+
+            <div class="activity-list">
+              <article class="activity-item">
+                <span class="activity-dot" aria-hidden="true"></span>
+                <div class="activity-content">
+                  <h3>Accenture drive added</h3>
+                  <p>Associate Developer role published today.</p>
+                </div>
+              </article>
+              <article class="activity-item">
+                <span class="activity-dot" aria-hidden="true"></span>
+                <div class="activity-content">
+                  <h3>34 students crossed 80%</h3>
+                  <p>Readiness improved after aptitude sprint.</p>
+                </div>
+              </article>
+              <article class="activity-item">
+                <span class="activity-dot" aria-hidden="true"></span>
+                <div class="activity-content">
+                  <h3>Feedback batch reviewed</h3>
+                  <p>18 feedback items marked resolved.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="card span-5" id="add-company" aria-labelledby="add-company-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="add-company-title">Add Company Form</h2>
+                <p class="card-caption">Create a new company drive for eligible students.</p>
+              </div>
+              <span class="badge">Admin</span>
+            </div>
+
+            <form id="addCompanyForm" action="#" method="post">
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label class="form-label" for="companyName">Company Name</label>
+                  <input class="form-control" type="text" id="companyName" name="companyName" placeholder="Zoho" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="jobRole">Job Role</label>
+                  <input class="form-control" type="text" id="jobRole" name="jobRole" placeholder="Software Developer" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="packageOffered">Package Offered</label>
+                  <input class="form-control" type="number" id="packageOffered" name="packageOffered" placeholder="8.0" min="0" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="minCgpa">Required CGPA</label>
+                  <input class="form-control" type="number" id="minCgpa" name="minCgpa" placeholder="7.0" min="0" max="10" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="deadline">Deadline</label>
+                  <input class="form-control" type="date" id="deadline" name="deadline" required>
+                </div>
+
+                <div class="form-group full">
+                  <label class="form-label" for="eligibleBranches">Eligible Branches</label>
+                  <input class="form-control" type="text" id="eligibleBranches" name="eligibleBranches" placeholder="CSE, IT, AI, DS">
+                  <span class="form-hint">Separate branch names with commas.</span>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-block" type="submit">Add Company</button>
+            </form>
+          </section>
+
+          <section class="card span-7" id="company-management" aria-labelledby="company-management-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="company-management-title">Company Management</h2>
+                <p class="card-caption">Update or remove active placement drives.</p>
+              </div>
+              <button class="btn btn-outline" type="button">Sync Companies</button>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Role</th>
+                    <th>Package</th>
+                    <th>CGPA</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>TCS Digital</td>
+                    <td>Software Engineer</td>
+                    <td>7.0 LPA</td>
+                    <td>7.0+</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                      <button class="btn btn-ghost" type="button">Edit</button>
+                      <button class="btn btn-ghost text-danger" type="button">Delete</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Infosys</td>
+                    <td>Systems Engineer</td>
+                    <td>4.5 LPA</td>
+                    <td>6.5+</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                      <button class="btn btn-ghost" type="button">Edit</button>
+                      <button class="btn btn-ghost text-danger" type="button">Delete</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Accenture</td>
+                    <td>Associate Developer</td>
+                    <td>6.0 LPA</td>
+                    <td>6.5+</td>
+                    <td><span class="badge badge-warning">Closing Soon</span></td>
+                    <td>
+                      <button class="btn btn-ghost" type="button">Edit</button>
+                      <button class="btn btn-ghost text-danger" type="button">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card span-12" id="feedback-management" aria-labelledby="feedback-management-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="feedback-management-title">Feedback Management</h2>
+                <p class="card-caption">Review student feedback and track resolution status.</p>
+              </div>
+              <div class="filter-group">
+                <button class="btn btn-outline" type="button">All Feedback</button>
+                <button class="btn btn-primary" type="button">Pending Review</button>
+              </div>
+            </div>
+
+            <div class="feedback-list">
+              <article class="feedback-item">
+                <div class="avatar" aria-hidden="true">AS</div>
+                <div class="feedback-content">
+                  <div class="card-header">
+                    <div>
+                      <h3>Ananya Sharma</h3>
+                      <p>June 6, 2026 · Company eligibility</p>
+                    </div>
+                    <span class="badge badge-warning">★★★★★</span>
+                  </div>
+                  <p>
+                    Company-specific preparation sheets would help students prepare faster after becoming eligible.
+                  </p>
+                  <div class="company-meta">
+                    <span class="badge">New</span>
+                    <button class="btn btn-outline" type="button">Mark Reviewed</button>
+                    <button class="btn btn-primary" type="button">Respond</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="feedback-item">
+                <div class="avatar" aria-hidden="true">RK</div>
+                <div class="feedback-content">
+                  <div class="card-header">
+                    <div>
+                      <h3>Rahul Kumar</h3>
+                      <p>June 4, 2026 · Aptitude practice</p>
+                    </div>
+                    <span class="badge badge-warning">★★★★☆</span>
+                  </div>
+                  <p>
+                    Please add more timed practice sets for probability, percentages, and logical reasoning.
+                  </p>
+                  <div class="company-meta">
+                    <span class="badge badge-success">Reviewed</span>
+                    <button class="btn btn-outline" type="button">Reopen</button>
+                    <button class="btn btn-primary" type="button">Respond</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

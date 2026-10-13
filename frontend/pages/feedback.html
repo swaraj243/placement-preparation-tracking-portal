@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit and review feedback for the Placement Preparation & Tracking Portal.">
+  <title>Feedback | Placement Preparation & Tracking Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-student-layout="true">
+  <div class="page-shell">
+    <aside class="app-sidebar" id="studentSidebar" aria-label="Student navigation">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-text">
+          <strong>Placement Portal</strong>
+          <span>Student Workspace</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <p class="nav-label">Overview</p>
+        <a class="nav-link" href="student-dashboard.html">
+          <span aria-hidden="true">▦</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="company-eligibility.html">
+          <span aria-hidden="true">◇</span>
+          <span>Companies</span>
+        </a>
+        <a class="nav-link active" href="feedback.html">
+          <span aria-hidden="true">✦</span>
+          <span>Feedback</span>
+        </a>
+
+        <p class="nav-label">Preparation</p>
+        <a class="nav-link" href="student-dashboard.html#coding-progress">
+          <span aria-hidden="true">⌘</span>
+          <span>Coding</span>
+        </a>
+        <a class="nav-link" href="student-dashboard.html#aptitude-progress">
+          <span aria-hidden="true">∑</span>
+          <span>Aptitude</span>
+        </a>
+        <a class="nav-link" href="student-dashboard.html#interview-progress">
+          <span aria-hidden="true">☷</span>
+          <span>Interview</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="profile-mini">
+          <div class="avatar" data-user-initials aria-hidden="true">--</div>
+          <div class="brand-text">
+            <strong data-user-name>Student</strong>
+            <span data-user-subtitle>—</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="app-navbar">
+        <div class="navbar-left">
+          <button class="icon-btn" type="button" id="sidebarToggle" aria-label="Toggle sidebar" aria-controls="studentSidebar" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+          <div>
+            <h1 class="navbar-title">Feedback</h1>
+            <p class="section-subtitle">Share what is working and what should improve.</p>
+          </div>
+        </div>
+
+        <div class="navbar-right">
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" placeholder="Search feedback" aria-label="Search feedback">
+          </div>
+          <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle dark or light mode" title="Toggle theme">
+            <span aria-hidden="true">◐</span>
+          </button>
+          <div class="dropdown" id="profileDropdown">
+            <button class="profile-mini" type="button" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar" data-user-initials aria-hidden="true">--</div>
+              <div class="brand-text">
+                <strong data-user-first-name>Student</strong>
+                <span data-user-role>Student</span>
+              </div>
+            </button>
+            <div class="dropdown-menu" role="menu" aria-label="Profile menu">
+              <a class="dropdown-item" href="student-dashboard.html" role="menuitem">Dashboard</a>
+              <a class="dropdown-item" href="company-eligibility.html" role="menuitem">Eligible Companies</a>
+              <a class="dropdown-item" href="../index.html" role="menuitem" data-logout>Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-inner">
+        <section class="page-grid" aria-label="Feedback workspace">
+          <div class="welcome-banner span-12">
+            <p class="eyebrow">Student voice</p>
+            <h1>Your feedback helps the placement team improve preparation support.</h1>
+            <p>
+              Rate your experience with materials, dashboards, company updates, mentoring,
+              and interview preparation workflows.
+            </p>
+          </div>
+
+          <section class="card span-6" aria-labelledby="feedback-form-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="feedback-form-title">Submit Feedback</h2>
+                <p class="card-caption">Tell us about your placement preparation experience.</p>
+              </div>
+              <span class="badge">Student</span>
+            </div>
+
+            <form id="feedbackForm" action="#" method="post">
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label class="form-label" for="feedbackSubject">Subject</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="feedbackSubject"
+                    name="subject"
+                    placeholder="Aptitude materials, mock interviews, company updates"
+                    required
+                  >
+                </div>
+
+                <div class="form-group full">
+                  <span class="form-label">Rating</span>
+                  <div class="stars" aria-label="Star rating">
+                    <input type="radio" id="star5" name="rating" value="5" required>
+                    <label for="star5" aria-label="5 stars">★</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4" aria-label="4 stars">★</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3" aria-label="3 stars">★</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2" aria-label="2 stars">★</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1" aria-label="1 star">★</label>
+                  </div>
+                </div>
+
+                <div class="form-group full">
+                  <label class="form-label" for="feedbackMessage">Comment</label>
+                  <textarea
+                    class="form-textarea"
+                    id="feedbackMessage"
+                    name="message"
+                    placeholder="Write your feedback here..."
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-block" type="submit">Submit Feedback</button>
+            </form>
+          </section>
+
+          <section class="card span-6" aria-labelledby="feedback-summary-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="feedback-summary-title">Feedback Snapshot</h2>
+                <p class="card-caption">Recent student sentiment across the portal.</p>
+              </div>
+            </div>
+
+            <div class="page-grid">
+              <article class="stat-card span-6">
+                <div class="stat-top">
+                  <div>
+                    <p class="stat-label">Average Rating</p>
+                    <h3 class="stat-value">4.6</h3>
+                  </div>
+                  <div class="stat-icon" aria-hidden="true">★</div>
+                </div>
+                <span class="stat-trend">128 responses</span>
+              </article>
+              <article class="stat-card span-6">
+                <div class="stat-top">
+                  <div>
+                    <p class="stat-label">Resolved Feedback</p>
+                    <h3 class="stat-value">91%</h3>
+                  </div>
+                  <div class="stat-icon" aria-hidden="true">✓</div>
+                </div>
+                <span class="stat-trend">This month</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="card span-12" aria-labelledby="previous-feedback-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="previous-feedback-title">Previous Feedback</h2>
+                <p class="card-caption">Recent feedback shared by students.</p>
+              </div>
+              <span class="badge badge-success">Reviewed by admin</span>
+            </div>
+
+            <div class="feedback-list"></div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/feedback.js"></script>
+</body>
+</html>

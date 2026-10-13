@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a student profile for the Placement Preparation & Tracking Portal.">
+  <title>Register | Placement Preparation & Tracking Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-layout animated-bg" aria-label="Student registration">
+    <section class="auth-visual" aria-labelledby="register-hero-title">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-text">
+          <strong>Placement Portal</strong>
+          <span>Preparation & Tracking</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Student profile setup</p>
+        <h1 id="register-hero-title">Build a profile that turns preparation into placement readiness.</h1>
+        <p>
+          Add your academic details, skills, and resume so the portal can connect your
+          preparation progress with eligible company opportunities.
+        </p>
+      </div>
+
+      <div class="page-grid" aria-label="Registration benefits">
+        <article class="glass-card card span-6">
+          <span class="badge">Profile Match</span>
+          <h2 class="card-title">Eligibility mapping</h2>
+          <p class="card-caption">Match CGPA, branch, and preparation progress with companies.</p>
+        </article>
+        <article class="glass-card card span-6">
+          <span class="badge badge-success">Skill Ready</span>
+          <h2 class="card-title">Focused tracking</h2>
+          <p class="card-caption">Track coding, aptitude, and interviews from day one.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="form-card">
+        <div class="auth-header">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Create account</p>
+              <h2>Register as a student</h2>
+              <p>Complete your profile to start tracking placement preparation.</p>
+            </div>
+            <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle dark or light mode" title="Toggle theme">
+              <span aria-hidden="true">◐</span>
+            </button>
+          </div>
+        </div>
+
+        <form id="registerForm" action="#" method="post" enctype="multipart/form-data" autocomplete="on">
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label" for="fullName">Full Name</label>
+              <input
+                class="form-control"
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="email">Email Address</label>
+              <input
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="student@example.com"
+                autocomplete="email"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="password">Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create password"
+                autocomplete="new-password"
+                minlength="6"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                autocomplete="new-password"
+                minlength="6"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cgpa">CGPA</label>
+              <input
+                class="form-control"
+                type="number"
+                id="cgpa"
+                name="cgpa"
+                placeholder="8.50"
+                min="0"
+                max="10"
+                step="0.01"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="branch">Branch</label>
+              <select class="form-select" id="branch" name="branch" required>
+                <option value="">Select branch</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics and Communication">Electronics and Communication</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Data Science">Data Science</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="skills">Skills</label>
+              <input
+                class="form-control"
+                type="text"
+                id="skills"
+                name="skills"
+                placeholder="JavaScript, Java, DSA, SQL"
+                autocomplete="off"
+              >
+              <span class="form-hint">Separate multiple skills with commas.</span>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="resume">Resume Upload</label>
+              <label class="file-upload" for="resume">
+                <span>
+                  Upload your resume<br>
+                  <span class="form-hint">PDF, DOC, or DOCX up to 5 MB</span>
+                </span>
+              </label>
+              <input
+                class="hide"
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+              >
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Register</button>
+        </form>
+
+        <p class="section-subtitle">
+          Already have an account?
+          <a class="auth-link" href="../index.html">Back to login</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

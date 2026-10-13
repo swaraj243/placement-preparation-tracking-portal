@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Placement Preparation & Tracking Portal login for students and administrators.">
+  <title>Login | Placement Preparation & Tracking Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-layout animated-bg" aria-label="Login">
+    <section class="auth-visual" aria-labelledby="hero-title">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-text">
+          <strong>Placement Portal</strong>
+          <span>Preparation & Tracking</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Career readiness workspace</p>
+        <h1 id="hero-title">Track preparation, unlock eligibility, and move confidently toward placements.</h1>
+        <p>
+          A focused portal for coding practice, aptitude growth, interview readiness,
+          company eligibility, and placement feedback in one polished dashboard.
+        </p>
+      </div>
+
+      <div class="page-grid" aria-label="Portal highlights">
+        <article class="glass-card card span-6">
+          <span class="badge badge-success">Live Progress</span>
+          <h2 class="card-title">Readiness score</h2>
+          <p class="card-caption">Measure coding, aptitude, and interview preparation.</p>
+        </article>
+        <article class="glass-card card span-6">
+          <span class="badge">Company Match</span>
+          <h2 class="card-title">Eligibility insights</h2>
+          <p class="card-caption">See openings aligned with your profile and progress.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="form-card">
+        <div class="auth-header">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Welcome back</p>
+              <h2>Sign in to your account</h2>
+              <p>Use your student or admin credentials to continue.</p>
+            </div>
+            <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle dark or light mode" title="Toggle theme">
+              <span aria-hidden="true">◐</span>
+            </button>
+          </div>
+        </div>
+
+        <form id="loginForm" action="#" method="post" autocomplete="on">
+          <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <div class="input-icon">
+              <span aria-hidden="true">@</span>
+              <input
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="student@example.com"
+                autocomplete="email"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-icon">
+              <span aria-hidden="true">●</span>
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                minlength="6"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="auth-actions">
+            <label class="checkbox-row" for="rememberMe">
+              <input type="checkbox" id="rememberMe" name="rememberMe">
+              <span>Remember me</span>
+            </label>
+            <a class="auth-link" href="#" aria-label="Reset forgotten password">Forgot password?</a>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </form>
+
+        <p class="section-subtitle">
+          New to the portal?
+          <a class="auth-link" href="pages/register.html">Create a student account</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

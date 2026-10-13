@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student dashboard for the Placement Preparation & Tracking Portal.">
+  <title>Student Dashboard | Placement Preparation & Tracking Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-student-layout="true">
+  <div class="page-shell">
+    <aside class="app-sidebar" id="studentSidebar" aria-label="Student navigation">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-text">
+          <strong>Placement Portal</strong>
+          <span>Student Workspace</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <p class="nav-label">Overview</p>
+        <a class="nav-link active" href="student-dashboard.html">
+          <span aria-hidden="true">▦</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="company-eligibility.html">
+          <span aria-hidden="true">◇</span>
+          <span>Companies</span>
+        </a>
+        <a class="nav-link" href="feedback.html">
+          <span aria-hidden="true">✦</span>
+          <span>Feedback</span>
+        </a>
+
+        <p class="nav-label">Preparation</p>
+        <a class="nav-link" href="#coding-progress">
+          <span aria-hidden="true">⌘</span>
+          <span>Coding</span>
+        </a>
+        <a class="nav-link" href="#aptitude-progress">
+          <span aria-hidden="true">∑</span>
+          <span>Aptitude</span>
+        </a>
+        <a class="nav-link" href="#interview-progress">
+          <span aria-hidden="true">☷</span>
+          <span>Interview</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="profile-mini">
+          <div class="avatar" data-user-initials aria-hidden="true">--</div>
+          <div class="brand-text">
+            <strong data-user-name>Student</strong>
+            <span data-user-subtitle>—</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="app-navbar">
+        <div class="navbar-left">
+          <button class="icon-btn" type="button" id="sidebarToggle" aria-label="Toggle sidebar" aria-controls="studentSidebar" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+          <div>
+            <h1 class="navbar-title">Student Dashboard</h1>
+            <p class="section-subtitle" data-navbar-date>—</p>
+          </div>
+        </div>
+
+        <div class="navbar-right">
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" placeholder="Search companies, topics, tasks" aria-label="Search dashboard">
+          </div>
+
+          <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle dark or light mode" title="Toggle theme">
+            <span aria-hidden="true">◐</span>
+          </button>
+
+          <button class="icon-btn" type="button" aria-label="View notifications" title="Notifications">
+            <span aria-hidden="true">●</span>
+          </button>
+
+          <div class="dropdown" id="profileDropdown">
+            <button class="profile-mini" type="button" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar" data-user-initials aria-hidden="true">--</div>
+              <div class="brand-text">
+                <strong data-user-first-name>Student</strong>
+                <span data-user-role>Student</span>
+              </div>
+            </button>
+            <div class="dropdown-menu" role="menu" aria-label="Profile menu">
+              <a class="dropdown-item" href="#" role="menuitem">Profile Settings</a>
+              <a class="dropdown-item" href="company-eligibility.html" role="menuitem">Eligible Companies</a>
+              <a class="dropdown-item" href="feedback.html" role="menuitem">Submit Feedback</a>
+              <a class="dropdown-item" href="../index.html" role="menuitem" data-logout>Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-inner">
+        <section class="page-grid" aria-label="Dashboard overview">
+          <div class="welcome-banner span-12">
+            <p class="eyebrow">Placement readiness</p>
+            <h1 data-user-welcome>Welcome back.</h1>
+            <p>
+              Complete one system design mock interview and two aptitude practice sets this week
+              to unlock more eligibility matches.
+            </p>
+          </div>
+
+          <section class="card span-12" id="student-profile-card" aria-labelledby="profile-card-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="profile-card-title">My Profile</h2>
+                <p class="card-caption">Your registered student information.</p>
+              </div>
+              <div class="avatar" data-user-initials aria-hidden="true">--</div>
+            </div>
+            <div class="company-meta">
+              <span class="badge" data-user-email>—</span>
+              <span class="badge badge-muted" data-user-department>—</span>
+              <span class="badge badge-success" data-user-cgpa>—</span>
+            </div>
+            <p class="section-subtitle" data-user-skills>Skills: —</p>
+          </section>
+
+          <article class="card span-8">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Placement Readiness Score</h2>
+                <p class="card-caption">Weighted from coding, aptitude, interview prep, and profile strength.</p>
+              </div>
+              <span class="badge badge-success">Strong</span>
+            </div>
+            <div class="readiness-score">
+              <div class="circular-progress" style="--value: 82%;">
+                <span>82%</span>
+              </div>
+              <div class="readiness-copy">
+                <h3>Ready for product companies</h3>
+                <p>
+                  Your DSA consistency and project profile are strong. Improve aptitude speed and
+                  HR interview confidence to cross the 90% readiness mark.
+                </p>
+                <div class="company-meta">
+                  <span class="badge">DSA: 88%</span>
+                  <span class="badge badge-warning">Aptitude: 74%</span>
+                  <span class="badge badge-success">Profile: 91%</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card span-4">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Overall Progress</h2>
+                <p class="card-caption">Preparation completion</p>
+              </div>
+            </div>
+            <div class="circular-progress" style="--value: 79%; margin-inline: auto;">
+              <span>79%</span>
+            </div>
+          </article>
+
+          <article class="stat-card span-4" id="coding-progress">
+            <div class="stat-top">
+              <div>
+                <p class="stat-label">Coding Progress</p>
+                <h2 class="stat-value">88%</h2>
+              </div>
+              <div class="stat-icon" aria-hidden="true">⌘</div>
+            </div>
+            <div class="progress-track" aria-label="Coding progress">
+              <div class="progress-fill success" style="--progress: 88%;"></div>
+            </div>
+            <span class="stat-trend">142 problems solved</span>
+          </article>
+
+          <article class="stat-card span-4" id="aptitude-progress">
+            <div class="stat-top">
+              <div>
+                <p class="stat-label">Aptitude Progress</p>
+                <h2 class="stat-value">74%</h2>
+              </div>
+              <div class="stat-icon" aria-hidden="true">∑</div>
+            </div>
+            <div class="progress-track" aria-label="Aptitude progress">
+              <div class="progress-fill warning" style="--progress: 74%;"></div>
+            </div>
+            <span class="stat-trend">18 timed tests completed</span>
+          </article>
+
+          <article class="stat-card span-4" id="interview-progress">
+            <div class="stat-top">
+              <div>
+                <p class="stat-label">Interview Progress</p>
+                <h2 class="stat-value">76%</h2>
+              </div>
+              <div class="stat-icon" aria-hidden="true">☷</div>
+            </div>
+            <div class="progress-track" aria-label="Interview progress">
+              <div class="progress-fill" style="--progress: 76%;"></div>
+            </div>
+            <span class="stat-trend">5 mocks completed</span>
+          </article>
+
+          <section class="card span-8" aria-labelledby="upcoming-companies-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="upcoming-companies-title">Upcoming Companies</h2>
+                <p class="card-caption">Application windows opening soon for your batch.</p>
+              </div>
+              <a class="btn btn-ghost" href="company-eligibility.html">View all</a>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Role</th>
+                    <th>Package</th>
+                    <th>Deadline</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Infosys</td>
+                    <td>Systems Engineer</td>
+                    <td>4.5 LPA</td>
+                    <td>June 15</td>
+                    <td><span class="badge badge-success">Eligible</span></td>
+                  </tr>
+                  <tr>
+                    <td>Accenture</td>
+                    <td>Associate Developer</td>
+                    <td>6.0 LPA</td>
+                    <td>June 20</td>
+                    <td><span class="badge badge-success">Eligible</span></td>
+                  </tr>
+                  <tr>
+                    <td>TCS Digital</td>
+                    <td>Software Engineer</td>
+                    <td>7.0 LPA</td>
+                    <td>June 28</td>
+                    <td><span class="badge badge-warning">Improve aptitude</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card span-4" aria-labelledby="eligible-companies-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="eligible-companies-title">Eligible Companies</h2>
+                <p class="card-caption">Matched from CGPA, branch, and progress.</p>
+              </div>
+              <span class="badge badge-success">7 matches</span>
+            </div>
+
+            <div class="activity-list">
+              <article class="activity-item">
+                <div class="company-logo" aria-hidden="true">IN</div>
+                <div class="activity-content">
+                  <h4>Infosys</h4>
+                  <p>Systems Engineer · 4.5 LPA</p>
+                </div>
+              </article>
+              <article class="activity-item">
+                <div class="company-logo" aria-hidden="true">AC</div>
+                <div class="activity-content">
+                  <h4>Accenture</h4>
+                  <p>Associate Developer · 6.0 LPA</p>
+                </div>
+              </article>
+              <article class="activity-item">
+                <div class="company-logo" aria-hidden="true">ZO</div>
+                <div class="activity-content">
+                  <h4>Zoho</h4>
+                  <p>Software Developer · 8.0 LPA</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="card span-4" aria-labelledby="quick-actions-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="quick-actions-title">Quick Actions</h2>
+                <p class="card-caption">High-impact next steps.</p>
+              </div>
+            </div>
+            <div class="activity-list">
+              <a class="btn btn-primary btn-block" href="company-eligibility.html">Check Eligibility</a>
+              <a class="btn btn-outline btn-block" href="#coding-progress">Update Progress</a>
+              <a class="btn btn-outline btn-block" href="feedback.html">Submit Feedback</a>
+              <button class="btn btn-ghost btn-block" type="button">Download Resume Score</button>
+            </div>
+          </section>
+
+          <section class="card span-4" aria-labelledby="activity-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="activity-title">Recent Activity</h2>
+                <p class="card-caption">Your latest preparation updates.</p>
+              </div>
+            </div>
+
+            <div class="activity-list">
+              <article class="activity-item">
+                <span class="activity-dot" aria-hidden="true"></span>
+                <div class="activity-content">
+                  <h4>Completed array practice set</h4>
+                  <p>18 questions solved · Today</p>
+                </div>
+              </article>
+              <article class="activity-item">
+                <span class="activity-dot" aria-hidden="true"></span>
+                <div class="activity-content">
+                  <h4>Mock interview reviewed</h4>
+                  <p>Communication score improved by 12%</p>
+                </div>
+              </article>
+              <article class="activity-item">
+                <span class="activity-dot" aria-hidden="true"></span>
+                <div class="activity-content">
+                  <h4>Aptitude test submitted</h4>
+                  <p>Quantitative aptitude · 34/40</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="card span-4" aria-labelledby="notifications-title">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" id="notifications-title">Notifications</h2>
+                <p class="card-caption">Placement cell updates.</p>
+              </div>
+              <span class="badge badge-danger">3 new</span>
+            </div>
+
+            <div class="notification-list">
+              <article class="notification-item">
+                <span class="notification-dot" aria-hidden="true"></span>
+                <div class="notification-content">
+                  <h4>Accenture registration opens tomorrow</h4>
+                  <p>Keep your resume and profile details updated.</p>
+                </div>
+              </article>
+              <article class="notification-item">
+                <span class="notification-dot" aria-hidden="true"></span>
+                <div class="notification-content">
+                  <h4>New aptitude material uploaded</h4>
+                  <p>Practice set 04 is now available.</p>
+                </div>
+              </article>
+              <article class="notification-item">
+                <span class="notification-dot" aria-hidden="true"></span>
+                <div class="notification-content">
+                  <h4>Mock interview slots added</h4>
+                  <p>Book a slot before Friday evening.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/progress.js"></script>
+</body>
+</html>
